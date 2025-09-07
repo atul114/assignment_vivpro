@@ -14,7 +14,7 @@ cd assignment_vivpro
 ```
 ### 2. Start the backend
 ```bash
-# (Optional but recommended) create a virtual environment
+# (Optional) create a virtual environment
 python -m venv venv
 venv\Scripts\activate or venv/Scripts/activate  # On Windows 
 source venv/bin/activate  # On macOS/Linux
@@ -26,8 +26,11 @@ pip install -r requirements.txt
 python -m vivpro.app #Backend will start on http://127.0.0.1:5000/
 ```
 
-### 4. Test the backend APIs
+### 3. Test the backend APIs
 ```bash
+#Save the normalized data from playlist.json to DB 
+http://localhost:5000/save_normalized_data
+
 #GET request on below endpoint to view normalized data in a table
 http://localhost:5000/songs/table
 
@@ -42,7 +45,7 @@ http://localhost:5000/songs/38td8VabuKlQt72Q2VnhbO/rate
 
 ```
 
-### 3. Start the frontend
+### 4. Start the frontend
 ```bash
 
 #Open a new terminal at the same location
