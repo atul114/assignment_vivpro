@@ -1,0 +1,25 @@
+body {
+    background-color: #f8f9fa;
+    font-family: Arial, sans-serif;
+}
+
+table {
+    margin: auto; /* centers the table */
+    width: 90%;   /* make it take 90% of page width */
+    border-collapse: collapse;
+}
+
+h2 {
+    font-weight: 600;
+}
+
+.table {
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.pagination-buttons {
+    margin-top: 20px;
+}

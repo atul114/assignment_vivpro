@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Songs Table</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        /* Fix Pandas table headers */
+        table {
+            width: 95%;
+            margin: auto;
+            border-collapse: collapse;
+        }
+        thead th {
+            white-space: nowrap;   /* Prevent header text from breaking */
+            text-align: center;
+            background: #f8f9fa;   /* Light background for headers */
+            font-weight: 600;
+        }
+        tbody td {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Songs (Page {{ page }} of {{ total_pages }})</h2>
+
+        <!-- Table wrapped in responsive container -->
+        <div class="table-responsive">
+            {{ table|safe }}
+        </div>
+
+        <!-- Pagination -->
+        <nav aria-label="Songs pagination" class="mt-4 d-flex justify-content-center">
+            <ul class="pagination">
+                {% if page > 1 %}
+                    <li class="page-item">
+                        <a class="page-link" href="{{ url_for('view_songs_table', page=page-1) }}">Previous</a>
+                    </li>
+                {% endif %}
+
+                {% for p in range(1, total_pages + 1) %}
+                    <li class="page-item {% if p == page %}active{% endif %}">
+                        <a class="page-link" href="{{ url_for('view_songs_table', page=p) }}">{{ p }}</a>
+                    </li>
+                {% endfor %}
+
+                {% if page < total_pages %}
+                    <li class="page-item">
+                        <a class="page-link" href="{{ url_for('view_songs_table', page=page+1) }}">Next</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </nav>
+    </div>
+</body>
+</html>
