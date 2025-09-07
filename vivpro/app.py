@@ -5,6 +5,8 @@ import sqlite3
 import os
 
 app = Flask(__name__)
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+PLAYLIST_PATH = os.path.join(BASE_DIR, "data", "playlist.json")
 DB_PATH = os.environ.get("DB_PATH", "songs.db")
 #DB_PATH = "songs.db"
 
@@ -47,12 +49,12 @@ def home():
 
 @app.route("/show_data")
 def show_data():
-    return normalize_data('data/playlist.json')
+    return normalize_data(PLAYLIST_PATH)
 
 
 @app.route("/save_normalized_data")
 def save_normalized_data():
-    return store_normalized_data_in_db('data/playlist.json')
+    return store_normalized_data_in_db(PLAYLIST_PATH)
 
 
 @app.route("/view_songs_from_db")
