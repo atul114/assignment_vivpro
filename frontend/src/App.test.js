@@ -1,4 +1,4 @@
-// ✅ Mock axios before anything else
+// Mock axios before anything else
 jest.mock("axios", () => ({
   get: jest.fn(),
   post: jest.fn(),
@@ -10,7 +10,7 @@ import { render, screen, fireEvent, waitFor, within } from "@testing-library/rea
 import "@testing-library/jest-dom";
 import App from "./App";
 
-// 🔹 Fake songs data
+//  Fake songs data
 const mockSongs = Array.from({ length: 15 }, (_, i) => ({
   id: i + 1,
   title: `Song ${i + 1}`,
